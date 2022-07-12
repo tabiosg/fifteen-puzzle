@@ -25,6 +25,11 @@ class Location {
         return this.col;
     }
 
+    //EFFECTS: returns the index of the location in a grid
+    getIndex(): number {
+        return this.row * 4 + this.col
+    }
+    
     //REQUIRES: dir is a valid Direction and location in direction must be valid
     //EFFECTS: returns the location that is in the direction relative to the current location.
     getLocationInDirection(dir: Direction): Location {
