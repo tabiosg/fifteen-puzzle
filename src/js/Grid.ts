@@ -14,7 +14,7 @@ class Grid {
                               9, 10, 11, 12,
                               13, 14, 15, 0
                              ];
-        this.tiles = Array.from(default_tiles);
+        this.tiles = Array.from(this.default_tiles);
     }
 
     //EFFECTS: returns whether grid is complete.
@@ -35,7 +35,7 @@ class Grid {
     
     //EFFECTS: resets the grid to have tiles at default locations.
     reset(): void {
-        this.tiles = Array.from(default_tiles);
+        this.tiles = Array.from(this.default_tiles);
     }
     
     //EFFECTS: shuffles the grid.
@@ -46,8 +46,8 @@ class Grid {
     //REQUIRES: locations are adjacent.
     //EFFECTS: swaps the tiles of two adjacent locations.
     swap(loc1: Location, loc2: Location): void {
-        index_1: number = loc1.getIndex();
-        index_2: number = loc2.getIndex();
+        const index_1: number = loc1.getIndex();
+        const index_2: number = loc2.getIndex();
         [this.tiles[index_1] , this.tiles[index_2]] = [this.tiles[index_2] , this.tiles[index_1]];
     }
 }
