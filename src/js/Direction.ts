@@ -4,3 +4,5 @@ enum Direction {
   Left,
   Right,
 }
+
+export { Direction }
