@@ -34,10 +34,10 @@ Location imports Direction. It has the Location class definition and has the get
 
 ## Puzzle
 
-Puzzle imports Grid, Location, and ValidMoves. It has the Puzzle class definition and deals with puzzle logic and state.
+Puzzle imports Direction, Grid, Location, and ValidMoves. It has the Puzzle class definition and deals with puzzle logic and state.
 
 --- 
 
 ## ValidMoves
 
-ValidMoves imports Card, Rank, and Suit. It has the ValidMoves class definition which is used to determine whether it is valid to move the empty slot at a specific location in a given direction.
+ValidMoves imports Direction and Location. It has the ValidMoves class definition which is used to determine whether it is valid to move the empty slot at a specific location in a given direction.
