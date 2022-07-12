@@ -15,8 +15,8 @@ class Location(
     Location(int row, int col) row(row), col(col) {}
 
     Location get_loc_in_dir(Direction move)
-        row_diff_by_moves = [-1, 0, 1, 0]
-        col_diff_by_moves = [0, 1, 0, -1]
+        row_diff_by_moves = [1, 0, -1, 0]
+        col_diff_by_moves = [0, -1, 0, 1]
         return Loc(
             row + row_diff_by_moves[move],
             col + col_diff_by_moves[move]
@@ -67,6 +67,7 @@ class Puzzle:
     ValidMoves valid_moves = ValidMoves()
 
     void move_puzzle(Direction desired_move):
+    
         // TODO - add a time delay for visuals
         Direction valid_moves[4] = get_valid_moves
         if (!valid_moves[desired_move]) return
