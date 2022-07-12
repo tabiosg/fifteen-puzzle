@@ -28,10 +28,10 @@ class ValidMoves:
     for (row in range 4)
         for (col in range 4)
             Direction sol[4] = true true true true;
-            if (row == 0) sol[0] = false
-            else if (row == 3) sol[2] = false
-            if (col == 0) sol[3] = false
-            else if (row == 3) sol[1] = false
+            if (row == 0) sol[UP] = false
+            else if (row == 3) sol[DOWN] = false
+            if (col == 0) sol[LEFT] = false
+            else if (row == 3) sol[RIGHT] = false
             valid_moves[i][j] = sol;
 
     Array[Direction][4] get_valid_moves(Location loc):
