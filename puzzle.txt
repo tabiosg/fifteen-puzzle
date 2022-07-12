@@ -1,3 +1,5 @@
+NOTE THAT THIS IS ALSO PSEUDOCODE 
+
 
 enum Direction(
     Up = 0
