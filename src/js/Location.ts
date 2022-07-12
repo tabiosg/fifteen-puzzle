@@ -35,3 +35,5 @@ class Location {
         return new Location(rowAdj, colAdj)
     }
 }
+
+export { Location }
