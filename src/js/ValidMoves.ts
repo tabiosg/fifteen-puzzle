@@ -11,7 +11,7 @@ class ValidMoves {
         this.valid_moves = [];
 
         for (let i: number = 0; i < 16; i++) {
-            this.valid_moves[i] = [];
+            this.valid_moves[i] = [true, true, true, true];
             row: number = Math.floor(i/4);
             col: number = i % 4;
             if (row == 0) this.valid_moves[i][UP] = false;
@@ -21,7 +21,7 @@ class ValidMoves {
         }
     }
 
-    //EFFECTS: returns whether it is valid to move a tile at a location
+    //EFFECTS: returns whether it is valid to move an empty tile at a location in a certain direction
     static isMoveDirectionAtLocationValid(dir: Direction, loc: Location): boolean {
         return valid_moves[loc.getIndex()][dir];
     }
