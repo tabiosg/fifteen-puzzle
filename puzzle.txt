@@ -34,8 +34,8 @@ class ValidMoves:
             else if (row == 3) sol[RIGHT] = false
             valid_moves[i][j] = sol;
 
-    Array[Direction][4] get_valid_moves(Location loc):
-        return valid_moves[loc.row][loc.col]
+    bool is_move_at_loc_valid(Direction dir, Location loc):
+        return valid_moves[loc.row][loc.col][dir]
 
 class Grid:
     int tiles[4][4];
@@ -69,15 +69,11 @@ class Puzzle:
     void move_puzzle(Direction desired_move):
     
         // TODO - add a time delay for visuals
-        Direction valid_moves[4] = get_valid_moves
-        if (!valid_moves[desired_move]) return
+        if (!valid_moves.is_move_at_loc_valid(desired_move, empty_slot)) return
 
         Location moved_tile_loc = empty_slot.get_loc_in_dir(desired_move)
         grid.swap(empty_slot, moved_tile_loc)
         empty_slot = moved_tile_loc
-        
-    Array[Direction] get_valid_moves():
-        return valid_moves.get_valid_moves(empty_slot)
 
 
 TODO -- MAKE THE SOLVER CLASS
