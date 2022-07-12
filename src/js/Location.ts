@@ -24,8 +24,8 @@ class Location {
     }
 
     //REQUIRES: dir is a valid Direction
-    //EFFECTS: Returns the location that is in the direction relative to the current location.
-    //         Note that this location may be invalid.
+    //EFFECTS: returns the location that is in the direction relative to the current location.
+    //NOTE: the returned location may be invalid.
     get_location_in_direction(Direction: dir): Location {
         row_diff_by_loc = [1, 0, -1, 0]
         row_diff_by_loc = [0, -1, 0, 1]
