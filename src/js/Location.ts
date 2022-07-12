@@ -26,12 +26,12 @@ class Location {
     //REQUIRES: dir is a valid Direction and location in direction must be valid
     //EFFECTS: returns the location that is in the direction relative to the current location.
     getLocationInDirection(Direction: dir): Location {
-        const row_diff_by_loc: Array<number> = [1, 0, -1, 0];
-        const col_diff_by_loc: Array<number> = [0, -1, 0, 1];
-        row_adj: number = row + row_diff_by_loc[move];
-        col_adj: number = col + col_diff_by_loc[move];
-        assert(0 <= row_adj && row_adj < 4)
-        assert(0 <= col_adj && col_adj < 4)
-        return new Location(row_adj, col_adj)
+        const rowDiffByLoc: Array<number> = [1, 0, -1, 0];
+        const colDiffByLoc: Array<number> = [0, -1, 0, 1];
+        rowAdj: number = row + rowDiffByLoc[move];
+        colAdj: number = col + colDiffByLoc[move];
+        assert(0 <= row_adj && rowAdj < 4)
+        assert(0 <= col_adj && colAdj < 4)
+        return new Location(rowAdj, colAdj)
     }
 }
