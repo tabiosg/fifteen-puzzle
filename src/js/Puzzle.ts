@@ -20,7 +20,7 @@ class Puzzle {
         if (!ValidMoves.isMoveDirectionAtLocationValid(dir, this.emptyLocation) return;
         movedTileLocation: Location = emptyLocation.getLocationInDirection(dir);
         this.grid.swap(emptyLocation, movedTileLocation);
-        this.empyLocation = movedTileLocation;
+        Object.assign(this.empyLocation, movedTileLocation);
     }
     
     //EFFECTS: sets grid equal to another grid.
