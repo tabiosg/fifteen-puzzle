@@ -3,8 +3,6 @@ import { Location } from './Location.js';
 import { Grid } from './Grid.js';
 import { ValidMoves } from './ValidMoves.js';
 
-// TODO LATER
-
 class Puzzle {
     // COMMENTS: these are the member variables of Puzzle.
     private grid: Grid;
@@ -13,12 +11,16 @@ class Puzzle {
     // REQUIRES: nothing.
     constructor() {
         // TODO - verify that this works
-        this.tiles = Array.from(default_tiles);
+        this.grid = new Grid;
+        this.emptyLocation = new Location(3, 3);
     }
 
-    //EFFECTS: returns whether grid is complete.
-    isGridComplete(loc: Location): boolean {
-        return this.tiles === this.default_tiles;
+    //EFFECTS: moves grid in a given direction
+    movePuzzle(dir: Direction): void {
+        if (!ValidMoves.isMoveDirectionAtLocationValid(dir, this.emptyLocation) return;
+        movedTileLocation: Location = emptyLocation.getLocationInDirection(dir);
+        this.grid.swap(emptyLocation, movedTileLocation);
+        this.empyLocation = movedTileLocation;
     }
     
     //EFFECTS: sets grid equal to another grid.
