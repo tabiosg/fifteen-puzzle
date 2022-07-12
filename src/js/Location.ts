@@ -9,6 +9,8 @@ class Location {
     // REQUIRES: 0 <= row <= 3 and c <= col <= 3
     // EXAMPLES: row = 2, row = 3
     constructor(row: number, col: number) {
+        assert(0 <= row && row < 4)
+        assert(0 <= col && col < 4)
         this.row = row;
         this.col = col;
     }
