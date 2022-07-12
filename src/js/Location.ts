@@ -1,6 +1,8 @@
 
 import { Direction } from './Direction.js';
 
+declare function assert(value: unknown): asserts value;
+
 class Location {
     // COMMENTS: these are the member variables of Location.
     private row: number;
@@ -34,10 +36,10 @@ class Location {
     getLocationInDirection(dir: Direction): Location {
         const rowDiffByLoc: Array<number> = [1, 0, -1, 0];
         const colDiffByLoc: Array<number> = [0, -1, 0, 1];
-        rowAdj: number = row + rowDiffByLoc[move];
-        colAdj: number = col + colDiffByLoc[move];
-        assert(0 <= row_adj && rowAdj < 4)
-        assert(0 <= col_adj && colAdj < 4)
+        const rowAdj: number = this.row + rowDiffByLoc[dir];
+        const colAdj: number = this.col + colDiffByLoc[dir];
+        assert(0 <= rowAdj && rowAdj < 4)
+        assert(0 <= colAdj && colAdj < 4)
         return new Location(rowAdj, colAdj)
     }
 }
