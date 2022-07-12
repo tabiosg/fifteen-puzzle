@@ -25,7 +25,7 @@ class Location {
 
     //REQUIRES: dir is a valid Direction and location in direction must be valid
     //EFFECTS: returns the location that is in the direction relative to the current location.
-    getLocationInDirection(Direction: dir): Location {
+    getLocationInDirection(dir: Direction): Location {
         const rowDiffByLoc: Array<number> = [1, 0, -1, 0];
         const colDiffByLoc: Array<number> = [0, -1, 0, 1];
         rowAdj: number = row + rowDiffByLoc[move];
