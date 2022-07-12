@@ -4,16 +4,16 @@ import { Location } from './Location.js';
 class Grid {
     // COMMENTS: these are the member variables of Grid.
     private tiles: Array<number>;
-    readonly default_tiles: Array<number> = [
-                                              1, 2, 3, 4,
-                                              5, 6, 7, 8,
-                                              9, 10, 11, 12,
-                                              13, 14, 15, 0
-                                            ];
+    readonly default_tiles: Array<number>;
 
     // REQUIRES: nothing.
     constructor() {
         // TODO - verify that this works
+        this.default_tiles = [1, 2, 3, 4,
+                              5, 6, 7, 8,
+                              9, 10, 11, 12,
+                              13, 14, 15, 0
+                             ];
         this.tiles = Array.from(default_tiles);
     }
 
