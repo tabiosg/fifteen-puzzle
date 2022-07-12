@@ -11,9 +11,9 @@ The simple algorithm is NOT an optimal algorithm. Instead, it is a very simple a
 
 The way how it works is the following (Tiles indexed by 1, locations indexed by 1):
 
-1. Start with completing the top row. Place tile 1 in location 1, tile 2 in location 2, and tile 4 in location 3. Put tile 3 in location 7. Put tile 4 in location 4, and put tile 3 in location 3.
-2. Deal with completing the second row. Place tile 5 in location 5, tile 6 in location 6, and tile 8 in location 7. Put tile 7 in location 11. Put tile 8 in location 8, and put tile 7 in location 7.
-3. Deal with completing the third row. Place tile 9 in location 9, tile 10 in location 10, and tile 12 in location 11. Put tile 11 in location 15. Put tile 12 in location 12, and put tile 11 in location 11.
+1. Start with completing the top row. Place tile 1 in location 1, tile 2 in location 2, and tile 4 in location 3. Put tile 3 in location 7. Put tile 4 in location 4, and put tile 3 in location 3. When getting tile 4 into location 3, be wary of the location of tile 3 (try to put it around two tiles away) or else it may be difficult to place it in location 7.
+2. Deal with completing the second row. Place tile 5 in location 5, tile 6 in location 6, and tile 8 in location 7. Put tile 7 in location 11. Put tile 8 in location 8, and put tile 7 in location 7. When getting tile 8 into location 7, be wary of the location of tile 7 (try to put it around two tiles away) or else it may be difficult to place it in location 11.
+3. Deal with completing the third row. Place tile 9 in location 9, tile 10 in location 10, and tile 12 in location 11. Put tile 11 in location 15. Put tile 12 in location 12, and put tile 11 in location 11. When getting tile 12 into location 11, be wary of the location of tile 11 (try to put it around two tiles away) or else it may be difficult to place it in location 15.
 4. If you're lucky, the last row will be in order (13, 14, 15). Otherwise, the steps will depend on our configuration. Our thought process is to remove a tile from the last row by placing it into a temporary storage area (the third row) and then place it back into last row in the desired location. This thought process of removing a tile from the last row and reintroducing it back into the last row in a new location is the same for all step 4 possibilities.
 
 ---
