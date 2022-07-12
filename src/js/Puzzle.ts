@@ -1,6 +1,5 @@
-
-import { Location } from './Location.js';
 import { Grid } from './Grid.js';
+import { Location } from './Location.js';
 import { ValidMoves } from './ValidMoves.js';
 
 class Puzzle {
