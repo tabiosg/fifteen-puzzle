@@ -77,3 +77,8 @@ class Puzzle:
         
     Array[Direction] get_valid_moves():
         return valid_moves.get_valid_moves(empty_slot)
+
+
+TODO -- MAKE THE SOLVER CLASS
+
+THEN FIGURE OUT HOW TO GET A TILE INTO A DESIRED LOCATION
