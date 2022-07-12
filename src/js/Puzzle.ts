@@ -23,7 +23,7 @@ class Puzzle {
     }
     
     //EFFECTS: sets grid equal to another grid.
-    set_grid(other: Grid): void {
+    setGrid(other: Grid): void {
         this.tiles = Array.from(other.tiles);
     }
 
