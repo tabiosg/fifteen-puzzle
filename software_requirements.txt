@@ -1,0 +1,22 @@
+General requirements:
+
+Website is written in TypeScript.
+
+Home page will allow one to select one of the following by clicking on buttons: 
+1. Learn Simple Algorithm
+2. Try Solving Slider Alone
+3. Practice Solving Last Row in Any Configuration
+
+There will be a slider puzzle on the screen on startup, and a button that says shuffle.
+
+1. Learn Simple Algorithm
+
+This section will be the hardest and longest
+
+2. Try Solving Slider Alone
+
+Make sure to keep track of steps taken
+
+3. Practice Solving Last Row
+
+There should be a button showing which option to start off at e.g. 13, 15, 14 or 15 14 13 or random.
