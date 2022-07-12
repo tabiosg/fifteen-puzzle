@@ -41,9 +41,3 @@ Puzzle imports Grid, Location, and ValidMoves. It has the Puzzle class definitio
 ## ValidMoves
 
 ValidMoves imports Card, Rank, and Suit. It has the ValidMoves class definition which is used to determine whether it is valid to move the empty slot at a specific location in a given direction.
-
----
-
-## TODOs
-
-- [ ] Check if objects are properly being assigned (make sure we are passing by copy and not by reference)
