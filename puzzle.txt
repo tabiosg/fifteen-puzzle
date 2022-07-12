@@ -1,0 +1,77 @@
+
+enum Direction(
+    Up = 0
+    Right = 1
+    Down = 2
+    Left = 3
+)      
+
+class Location(
+    int row = -1;
+    int col = -1;
+
+    Location(int row, int col) row(row), col(col) {}
+
+    Location get_loc_in_dir(Direction move)
+        row_diff_by_moves = [-1, 0, 1, 0]
+        col_diff_by_moves = [0, 1, 0, -1]
+        return Loc(
+            row + row_diff_by_moves[move],
+            col + col_diff_by_moves[move]
+        )
+)
+
+class ValidMoves:
+    Direction valid_moves[4][4]
+    for (row in range 4)
+        for (col in range 4)
+            Direction sol[4] = true true true true;
+            if (row == 0) sol[0] = false
+            else if (row == 3) sol[2] = false
+            if (col == 0) sol[3] = false
+            else if (row == 3) sol[1] = false
+            valid_moves[i][j] = sol;
+
+    Array[Direction][4] get_valid_moves(Location loc):
+        return valid_moves[loc.row][loc.col]
+
+class Grid:
+    int tiles[4][4];
+    int default_tiles[4][4] = (
+        1, 2, 3 4 5 6 7 8 9 10
+        11 12 13 14 15 0
+    )
+
+    void reset():
+        tiles = default_tiles;
+
+    void shuffle():
+
+    bool is_grid_complete:
+        return tiles == default_tiles
+
+    int get_tile_at_loc(Loc loc)
+        return tiles[loc.row][loc.col]
+
+    void swap(Loc loc1, Loc loc2):
+        // todo assert locations are adjacent
+        int temp = get_tile_at_loc(loc1)
+        tiles[loc1.row][loc1.col] = get_tile_at_loc(loc2)
+        tiles[loc2.row][loc2.col] = temp
+
+class Puzzle:
+    Grid grid;
+    Location empty_slot = Location(3, 3)
+    ValidMoves valid_moves = ValidMoves()
+
+    void move_puzzle(Direction desired_move):
+        // TODO - add a time delay for visuals
+        Direction valid_moves[4] = get_valid_moves
+        if (!valid_moves[desired_move]) return
+
+        Location moved_tile_loc = empty_slot.get_loc_in_dir(desired_move)
+        grid.swap(empty_slot, moved_tile_loc)
+        empty_slot = moved_tile_loc
+        
+    Array[Direction] get_valid_moves():
+        return valid_moves.get_valid_moves(empty_slot)
