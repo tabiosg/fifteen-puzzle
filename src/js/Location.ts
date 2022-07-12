@@ -23,15 +23,15 @@ class Location {
         return this.col;
     }
 
-    //REQUIRES: dir is a valid Direction
+    //REQUIRES: dir is a valid Direction and location in direction must be valid
     //EFFECTS: returns the location that is in the direction relative to the current location.
-    //NOTE: the returned location may be invalid.
     get_location_in_direction(Direction: dir): Location {
-        row_diff_by_loc = [1, 0, -1, 0]
-        row_diff_by_loc = [0, -1, 0, 1]
-        return new Location(
-            row + row_diff_by_loc[move],
-            col + row_diff_by_loc[move]
-        )
+        const row_diff_by_loc: Array<number> = [1, 0, -1, 0];
+        const col_diff_by_loc: Array<number> = [0, -1, 0, 1];
+        row_adj: number = row + row_diff_by_loc[move];
+        col_adj: number = col + col_diff_by_loc[move];
+        assert(0 <= row_adj && row_adj < 4)
+        assert(0 <= col_adj && col_adj < 4)
+        return new Location(row_adj, col_adj)
     }
 }
