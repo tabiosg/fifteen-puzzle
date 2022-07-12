@@ -21,6 +21,11 @@ class Grid {
     isGridComplete(loc: Location): boolean {
         return this.tiles === this.default_tiles;
     }
+    
+    //EFFECTS: sets grid equal to another grid
+    set_grid(other: Grid): void {
+        this.tiles = Array.from(other.tiles);
+    }
 
     //REQUIRES: loc is a valid location
     //EFFECTS: returns the tile number at the location
