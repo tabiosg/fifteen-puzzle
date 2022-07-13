@@ -52,8 +52,8 @@ class Puzzle {
 
     //EFFECTS: moves grid in a given direction
     movePuzzle(dir: Direction): void {
-        if (!ValidMoves.isMoveDirectionAtLocationValid(dir, this.emptyLocation)) return;
         const movedTileLocation: Location = this.emptyLocation.getLocationInDirection(dir);
+        if (!ValidMoves.isMoveDirectionAtLocationValid(dir, movedTileLocation)) return;
         this.grid.swap(this.emptyLocation, movedTileLocation);
         Object.assign(this.emptyLocation, movedTileLocation);
     }
