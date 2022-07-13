@@ -33,7 +33,12 @@ var Grid = /** @class */ (function () {
     }
     //EFFECTS: returns whether grid is complete.
     Grid.prototype.isGridComplete = function () {
-        return this.tiles === this.defaultTiles;
+        for (var i = 0; i < this.tiles.length; ++i) {
+            if (this.tiles[i] === this.defaultTiles[i])
+                continue;
+            return false;
+        }
+        return true;
     };
     //EFFECTS: sets grid equal to another grid.
     Grid.prototype.setGrid = function (other) {
@@ -63,7 +68,7 @@ var Grid = /** @class */ (function () {
     //EFFECTS: updates one grid element location to be consistent.
     Grid.prototype.updateGridElementAtIndex = function (index) {
         var num = this.tiles[index];
-        var str = num == 0 ? "*" : num.toString();
+        var str = num === 0 ? "*" : num.toString();
         this.locationElements[index].innerHTML = str;
     };
     //REQUIRES: locations are adjacent.

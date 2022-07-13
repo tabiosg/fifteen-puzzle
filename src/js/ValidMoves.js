@@ -10,13 +10,13 @@ var ValidMoves = /** @class */ (function () {
             ValidMoves.validMoves[i] = [true, true, true, true];
             var row = Math.floor(i / 4);
             var col = i % 4;
-            if (row == 0)
+            if (row === 0)
                 ValidMoves.validMoves[i][0 /* Direction.Up */] = false;
-            else if (row == 3)
+            else if (row === 3)
                 ValidMoves.validMoves[i][1 /* Direction.Down */] = false;
-            if (col == 0)
+            if (col === 0)
                 ValidMoves.validMoves[i][2 /* Direction.Left */] = false;
-            else if (col == 3)
+            else if (col === 3)
                 ValidMoves.validMoves[i][3 /* Direction.Right */] = false;
         }
     }

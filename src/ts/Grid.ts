@@ -39,7 +39,11 @@ class Grid {
 
     //EFFECTS: returns whether grid is complete.
     isGridComplete(): boolean {
-        return this.tiles === this.defaultTiles;
+        for (let i = 0; i < this.tiles.length; ++i) {
+            if (this.tiles[i] === this.defaultTiles[i]) continue;
+            return false;
+        }
+        return true;
     }
     
     //EFFECTS: sets grid equal to another grid.
@@ -75,7 +79,7 @@ class Grid {
     //EFFECTS: updates one grid element location to be consistent.
     updateGridElementAtIndex(index: number): void {
         const num: number = this.tiles[index];
-        const str: string = num == 0 ? "*" : num.toString();
+        const str: string = num === 0 ? "*" : num.toString();
         this.locationElements[index].innerHTML = str;
     }
     
