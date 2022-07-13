@@ -63,4 +63,4 @@ Thus, I will keep this project short and just make it a way to teach anybody a s
 
 Run ```npm run build```.
 
-If this is your first time using npm, you may need to run ```sudo apt install npm```, ```npm install typescript```, ```sudo npm install -g webpack```, and more.
+If this is your first time using npm, you may need to run ```sudo apt install npm```, ```npm install typescript```, ```sudo npm install -g webpack```, and ```npm install`.
