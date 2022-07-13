@@ -1,94 +1,76 @@
-
+import { Direction } from './Direction.js';
+import { Grid } from './Grid.js';
 import { Location } from './Location.js';
+import { ValidMoves } from './ValidMoves.js';
 
-class Grid {
-    // COMMENTS: these are the member variables of Grid.
-    readonly defaultTiles: Array<number>;
-    private tiles: Array<number>;
-    private locationElements: Array<HTMLElement>;
+class Puzzle {
+    // COMMENTS: these are the member variables of Puzzle.
+    private grid: Grid;
+    private emptyLocation: Location;
+    private puzzleStatusElement: HTMLElement;
 
     // REQUIRES: nothing.
     constructor() {
         // TODO - verify that this works
-        this.defaultTiles = [1, 2, 3, 4,
-                             5, 6, 7, 8,
-                             9, 10, 11, 12,
-                             13, 14, 15, 0
-                            ];
-        this.tiles = Array.from(this.defaultTiles);
-        this.locationElements = [
-            document.getElementById("loc-0")!,
-            document.getElementById("loc-1")!,
-            document.getElementById("loc-2")!,
-            document.getElementById("loc-3")!,
-            document.getElementById("loc-4")!,
-            document.getElementById("loc-5")!,
-            document.getElementById("loc-6")!,
-            document.getElementById("loc-0")!,
-            document.getElementById("loc-7")!,
-            document.getElementById("loc-8")!,
-            document.getElementById("loc-9")!,
-            document.getElementById("loc-10")!,
-            document.getElementById("loc-11")!,
-            document.getElementById("loc-12")!,
-            document.getElementById("loc-13")!,
-            document.getElementById("loc-14")!,
-            document.getElementById("loc-15")!,
-        ]
-        this.updateAllGridElements();
+        this.grid = new Grid;
+        this.emptyLocation = new Location(3, 3);
+        this.initializeAllButtons();
+        this.puzzleStatusElement = document.getElementById("puzzle-status")!;
     }
 
-    //EFFECTS: returns whether grid is complete.
-    isGridComplete(loc: Location): boolean {
-        return this.tiles === this.defaultTiles;
-    }
-    
-    //EFFECTS: sets grid equal to another grid.
-    setGrid(other: Grid): void {
-        this.tiles = Array.from(other.tiles);
-    }
-
-    //REQUIRES: loc is a valid location.
-    //EFFECTS: returns the tile number at the location.
-    getTileAtLocation(loc: Location): number {
-        return this.tiles[loc.getIndex()];
-    }
-    
-    //EFFECTS: resets the grid to have tiles at default locations.
-    reset(): void {
-        this.tiles = Array.from(this.defaultTiles);
-        this.updateAllGridElements();
-    }
-    
-    //EFFECTS: shuffles the grid.
-    shuffle(): void {
-        // TODO - do eventually, don't just randomly shuffle unless you check if the grid is valid.
-        this.updateAllGridElements();
+    //EFFECTS: updates puzzle status based on grid
+    updatePuzzleStatusElement(): void {
+        if (this.grid.isGridComplete()) {
+            this.puzzleStatusElement.innerHTML = "Completed";
+            return;
+        }
+        this.puzzleStatusElement.innerHTML = "Not Completed";
     }
 
-    //EFFECTS: updates the HTML elements to be consistent with the grid.
-    updateAllGridElements(): void {
-        for (let i = 0; i < this.tiles.length; ++i) {
-            this.updateGridElementAtIndex(i);
+    //EFFECTS: initialize buttons
+    initializeAllButtons(): void {
+        this.initializePuzzleMenuButtons();
+        this.initializeDirectionMenuButtons();
+    }
+
+    //EFFECTS: initialize puzzle menu buttons
+    initializePuzzleMenuButtons(): void {
+        let shuffleButton = document.getElementById("shuffle-button")!;
+        shuffleButton.onclick = () => {
+            this.grid.shuffle();
+            this.updatePuzzleStatusElement();
+        }
+
+        let resetButton = document.getElementById("reset-button")!;
+        resetButton.onclick = () => {
+            this.grid.reset();
+            this.updatePuzzleStatusElement();
         }
     }
 
-    //EFFECTS: updates one grid element location to be consistent.
-    updateGridElementAtIndex(index: number): void {
-        const num: number = this.tiles[index];
-        const str: string = num == 0 ? "*" : num.toString();
-        this.locationElements[index].innerHTML = str;
+    //EFFECTS: initialize direction menu buttons
+    initializeDirectionMenuButtons(): void {
+        let directionMenuButtons = [
+            document.getElementById("up-button")!,
+            document.getElementById("right-button")!,
+            document.getElementById("down-button")!,
+            document.getElementById("left-button")!,
+        ]
+        for (let i = 0; i < directionMenuButtons.length; ++i) {
+            directionMenuButtons[i].onclick = () => {
+                this.movePuzzle(i);
+                this.updatePuzzleStatusElement();
+            }
+        }
     }
-    
-    //REQUIRES: locations are adjacent.
-    //EFFECTS: swaps the tiles of two adjacent locations.
-    swap(loc1: Location, loc2: Location): void {
-        const index1: number = loc1.getIndex();
-        const index2: number = loc2.getIndex();
-        [this.tiles[index1] , this.tiles[index2]] = [this.tiles[index2] , this.tiles[index1]];
-        this.updateGridElementAtIndex(index1);
-        this.updateGridElementAtIndex(index2);
+
+    //EFFECTS: moves grid in a given direction
+    movePuzzle(dir: Direction): void {
+        const movedTileLocation: Location = this.emptyLocation.getLocationInDirection(dir);
+        if (!ValidMoves.isMoveDirectionAtLocationValid(dir, movedTileLocation)) return;
+        this.grid.swap(this.emptyLocation, movedTileLocation);
+        Object.assign(this.emptyLocation, movedTileLocation);
     }
 }
 
-export { Grid }
+export { Puzzle }
