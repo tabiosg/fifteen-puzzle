@@ -24,7 +24,6 @@ class Grid {
             document.getElementById("loc-4")!,
             document.getElementById("loc-5")!,
             document.getElementById("loc-6")!,
-            document.getElementById("loc-0")!,
             document.getElementById("loc-7")!,
             document.getElementById("loc-8")!,
             document.getElementById("loc-9")!,

@@ -56,3 +56,16 @@ My first inspiration was looking back at my first YouTube video which was a tuto
 After learning about the 14-15 puzzle, I then wanted to make a demonstration on being able to determine whether a puzzle was solvable, but then I learned that there are already posts about that.
 
 Thus, I will keep this project short and just make it a way to teach anybody a simple algorithm to solving a fifteen puzzle.
+
+---
+
+## How to Develop
+
+Change the TypeScript code in your favorite IDE. Then you can run ```npm run build``` to quickly update both TypeScript files and create the main.js file.
+
+If you would instead like to do each step separately, you can do the following:
+1. To update your TypeScript files into JavaScript, run ```npm run compile-typescript```.
+This puts the compiled JavaScript files in [```src/js/```](src/js/).
+2. To build your entire project, run ```npm run create-dist```. This creates [```main.js```](dist/main.js) which is called by [```index.html```](index.html).
+
+If this is your first time using npm, you may need to run ```sudo apt install npm```, ```npm install typescript```, ```sudo npm install -g webpack```, and ```npm install```.
