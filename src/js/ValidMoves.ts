@@ -21,7 +21,7 @@ class ValidMoves {
         }
     }
 
-    //EFFECTS: returns whether it is valid to move an empty tile at a location in a certain direction
+    //EFFECTS: returns whether it is valid to place a tile at a location in a certain direction
     static isMoveDirectionAtLocationValid(dir: Direction, loc: Location): boolean {
         return ValidMoves.validMoves[loc.getIndex()][dir];
     }
