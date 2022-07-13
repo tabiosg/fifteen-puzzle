@@ -1,37 +1,37 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 exports.Location = void 0;
-class Location {
+var Location = /** @class */ (function () {
     // REQUIRES: 0 <= row <= 3 and c <= col <= 3.
-    constructor(row, col) {
-        assert(0 <= row && row < 4);
-        assert(0 <= col && col < 4);
+    function Location(row, col) {
         this.row = row;
         this.col = col;
     }
     //EFFECTS: returns row of location.
-    get getRow() {
+    Location.prototype.getRow = function () {
         return this.row;
-    }
+    };
     //EFFECTS: returns col of location.
-    get getCol() {
+    Location.prototype.getCol = function () {
         return this.col;
-    }
+    };
     //EFFECTS: returns the index of the location in a grid.
-    getIndex() {
+    Location.prototype.getIndex = function () {
         return this.row * 4 + this.col;
-    }
+    };
+    //EFFECTS: returns whether location is valid or not
+    Location.prototype.isValid = function () {
+        return 0 <= this.row && this.row < 4 && 0 <= this.col && this.col < 4;
+    };
     //REQUIRES: dir is a valid Direction and location in direction must be valid.
     //EFFECTS: returns the location that is in the direction relative to the current location.
-    getLocationInDirection(dir) {
-        const rowDiffByLoc = [1, 0, -1, 0];
-        const colDiffByLoc = [0, -1, 0, 1];
-        const rowAdj = this.row + rowDiffByLoc[dir];
-        const colAdj = this.col + colDiffByLoc[dir];
-        assert(0 <= rowAdj && rowAdj < 4);
-        assert(0 <= colAdj && colAdj < 4);
+    Location.prototype.getLocationInDirection = function (dir) {
+        var rowDiffByLoc = [1, 0, -1, 0];
+        var colDiffByLoc = [0, -1, 0, 1];
+        var rowAdj = this.row + rowDiffByLoc[dir];
+        var colAdj = this.col + colDiffByLoc[dir];
         return new Location(rowAdj, colAdj);
-    }
-}
+    };
+    return Location;
+}());
 exports.Location = Location;
-//# sourceMappingURL=Location.js.map

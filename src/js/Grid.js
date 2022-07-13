@@ -1,9 +1,9 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 exports.Grid = void 0;
-class Grid {
+var Grid = /** @class */ (function () {
     // REQUIRES: nothing.
-    constructor() {
+    function Grid() {
         // TODO - verify that this works
         this.defaultTiles = [1, 2, 3, 4,
             5, 6, 7, 8,
@@ -19,7 +19,6 @@ class Grid {
             document.getElementById("loc-4"),
             document.getElementById("loc-5"),
             document.getElementById("loc-6"),
-            document.getElementById("loc-0"),
             document.getElementById("loc-7"),
             document.getElementById("loc-8"),
             document.getElementById("loc-9"),
@@ -33,49 +32,50 @@ class Grid {
         this.updateAllGridElements();
     }
     //EFFECTS: returns whether grid is complete.
-    isGridComplete() {
+    Grid.prototype.isGridComplete = function () {
         return this.tiles === this.defaultTiles;
-    }
+    };
     //EFFECTS: sets grid equal to another grid.
-    setGrid(other) {
+    Grid.prototype.setGrid = function (other) {
         this.tiles = Array.from(other.tiles);
-    }
+    };
     //REQUIRES: loc is a valid location.
     //EFFECTS: returns the tile number at the location.
-    getTileAtLocation(loc) {
+    Grid.prototype.getTileAtLocation = function (loc) {
         return this.tiles[loc.getIndex()];
-    }
+    };
     //EFFECTS: resets the grid to have tiles at default locations.
-    reset() {
+    Grid.prototype.reset = function () {
         this.tiles = Array.from(this.defaultTiles);
         this.updateAllGridElements();
-    }
+    };
     //EFFECTS: shuffles the grid.
-    shuffle() {
+    Grid.prototype.shuffle = function () {
         // TODO - do eventually, don't just randomly shuffle unless you check if the grid is valid.
         this.updateAllGridElements();
-    }
+    };
     //EFFECTS: updates the HTML elements to be consistent with the grid.
-    updateAllGridElements() {
-        for (let i = 0; i < this.tiles.length; ++i) {
+    Grid.prototype.updateAllGridElements = function () {
+        for (var i = 0; i < this.tiles.length; ++i) {
             this.updateGridElementAtIndex(i);
         }
-    }
+    };
     //EFFECTS: updates one grid element location to be consistent.
-    updateGridElementAtIndex(index) {
-        const num = this.tiles[index];
-        const str = num == 0 ? "*" : num.toString();
+    Grid.prototype.updateGridElementAtIndex = function (index) {
+        var num = this.tiles[index];
+        var str = num == 0 ? "*" : num.toString();
         this.locationElements[index].innerHTML = str;
-    }
+    };
     //REQUIRES: locations are adjacent.
     //EFFECTS: swaps the tiles of two adjacent locations.
-    swap(loc1, loc2) {
-        const index1 = loc1.getIndex();
-        const index2 = loc2.getIndex();
-        [this.tiles[index1], this.tiles[index2]] = [this.tiles[index2], this.tiles[index1]];
+    Grid.prototype.swap = function (loc1, loc2) {
+        var _a;
+        var index1 = loc1.getIndex();
+        var index2 = loc2.getIndex();
+        _a = [this.tiles[index2], this.tiles[index1]], this.tiles[index1] = _a[0], this.tiles[index2] = _a[1];
         this.updateGridElementAtIndex(index1);
         this.updateGridElementAtIndex(index2);
-    }
-}
+    };
+    return Grid;
+}());
 exports.Grid = Grid;
-//# sourceMappingURL=Grid.js.map

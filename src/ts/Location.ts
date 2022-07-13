@@ -1,8 +1,6 @@
 
 import { Direction } from './Direction.js';
 
-declare function assert(value: unknown): asserts value;
-
 class Location {
     // COMMENTS: these are the member variables of Location.
     private row: number;
@@ -10,25 +8,28 @@ class Location {
 
     // REQUIRES: 0 <= row <= 3 and c <= col <= 3.
     constructor(row: number, col: number) {
-        assert(0 <= row && row < 4)
-        assert(0 <= col && col < 4)
         this.row = row;
         this.col = col;
     }
 
     //EFFECTS: returns row of location.
-    get getRow(): number {
+    getRow(): number {
         return this.row;
     }
 
     //EFFECTS: returns col of location.
-    get getCol(): number {
+    getCol(): number {
         return this.col;
     }
 
     //EFFECTS: returns the index of the location in a grid.
     getIndex(): number {
-        return this.row * 4 + this.col
+        return this.row * 4 + this.col;
+    }
+
+    //EFFECTS: returns whether location is valid or not
+    isValid(): boolean {
+        return 0 <= this.row && this.row < 4 && 0 <= this.col && this.col < 4;
     }
     
     //REQUIRES: dir is a valid Direction and location in direction must be valid.
@@ -38,8 +39,6 @@ class Location {
         const colDiffByLoc: Array<number> = [0, -1, 0, 1];
         const rowAdj: number = this.row + rowDiffByLoc[dir];
         const colAdj: number = this.col + colDiffByLoc[dir];
-        assert(0 <= rowAdj && rowAdj < 4)
-        assert(0 <= colAdj && colAdj < 4)
         return new Location(rowAdj, colAdj)
     }
 }
