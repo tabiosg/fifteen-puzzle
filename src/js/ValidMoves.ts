@@ -17,7 +17,7 @@ class ValidMoves {
             if (row == 0) ValidMoves.validMoves[i][Direction.Up] = false;
             else if (row == 3) ValidMoves.validMoves[i][Direction.Down] = false;
             if (col == 0) ValidMoves.validMoves[i][Direction.Left] = false;
-            else if (row == 3) ValidMoves.validMoves[i][Direction.Right] = false;
+            else if (col == 3) ValidMoves.validMoves[i][Direction.Right] = false;
         }
     }
 
