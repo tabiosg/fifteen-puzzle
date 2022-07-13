@@ -39,7 +39,7 @@ class Grid {
     }
 
     //EFFECTS: returns whether grid is complete.
-    isGridComplete(loc: Location): boolean {
+    isGridComplete(): boolean {
         return this.tiles === this.defaultTiles;
     }
     
