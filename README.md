@@ -56,3 +56,11 @@ My first inspiration was looking back at my first YouTube video which was a tuto
 After learning about the 14-15 puzzle, I then wanted to make a demonstration on being able to determine whether a puzzle was solvable, but then I learned that there are already posts about that.
 
 Thus, I will keep this project short and just make it a way to teach anybody a simple algorithm to solving a fifteen puzzle.
+
+---
+
+## How to Develop
+
+Run ```npm run build```.
+
+If this is your first time using npm, you may need to run ```sudo apt install npm```, ```npm install typescript```, ```sudo npm install -g webpack```, and more.
