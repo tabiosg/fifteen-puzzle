@@ -1,0 +1,16 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.row {
+    width: 140px;
+    height: 30px;
+}
+
+.loc {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border: 1px solid black;
+}
