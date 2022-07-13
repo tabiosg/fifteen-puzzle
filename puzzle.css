@@ -37,3 +37,8 @@
     height: 25px;
     width: 140px;
 }
+
+#puzzle-status {
+    text-align: center;
+    width: 140px;
+}
