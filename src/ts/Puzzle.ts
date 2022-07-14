@@ -15,6 +15,7 @@ class Puzzle {
         this.grid = new Grid;
         this.emptyLocation = new Location(3, 3);
         this.initializeAllButtons();
+        this.initializeArrowKeyInputs();
         this.puzzleStatusElement = document.getElementById("puzzle-status")!;
     }
 
@@ -37,7 +38,7 @@ class Puzzle {
     initializePuzzleMenuButtons(): void {
         let shuffleButton = document.getElementById("shuffle-button")!;
         shuffleButton.onclick = () => {
-            this.grid.shuffle();
+            this.shuffle();
             this.updatePuzzleStatusElement();
         }
 
@@ -61,6 +62,41 @@ class Puzzle {
                 this.movePuzzle(i);
                 this.updatePuzzleStatusElement();
             }
+        }
+    }
+
+    //EFFECTS: configure user arrow key inputs
+    initializeArrowKeyInputs(): void {
+        window.addEventListener("keydown", function (event) {
+            if (event.defaultPrevented) {
+                return;
+            }
+
+            switch (event.key) {
+                case "ArrowDown":
+                    movePuzzle(Direction.Down);
+                    break;
+                case "ArrowUp":
+                    movePuzzle(Direction.Up);
+                    break;
+                case "ArrowLeft":
+                    movePuzzle(Direction.Left);
+                    break;
+                case "ArrowRight":
+                    movePuzzle(Direction.Right);
+                    break;
+                default:
+                    return;
+            }
+          
+            event.preventDefault();
+        }, true);
+    }
+
+    //EFFECTS: shuffles the grid
+    shuffle(): void {
+        for (let i = 0; i < 500; ++i) {
+            this.movePuzzle(Math.floor(Math.random() * 4));
         }
     }
 
