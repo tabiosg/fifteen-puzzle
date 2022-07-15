@@ -54,11 +54,6 @@ var Grid = /** @class */ (function () {
         this.tiles = Array.from(this.defaultTiles);
         this.updateAllGridElements();
     };
-    //EFFECTS: shuffles the grid.
-    Grid.prototype.shuffle = function () {
-        // TODO - do eventually, don't just randomly shuffle unless you check if the grid is valid.
-        this.updateAllGridElements();
-    };
     //EFFECTS: updates the HTML elements to be consistent with the grid.
     Grid.prototype.updateAllGridElements = function () {
         for (var i = 0; i < this.tiles.length; ++i) {

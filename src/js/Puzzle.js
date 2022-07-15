@@ -10,6 +10,7 @@ var Puzzle = /** @class */ (function () {
         this.grid = new Grid_js_1.Grid;
         this.emptyLocation = new Location_js_1.Location(3, 3);
         this.initializeAllButtons();
+        this.initializeArrowKeyInputs();
         this.puzzleStatusElement = document.getElementById("puzzle-status");
     }
     //EFFECTS: updates puzzle status based on grid
@@ -30,8 +31,7 @@ var Puzzle = /** @class */ (function () {
         var _this = this;
         var shuffleButton = document.getElementById("shuffle-button");
         shuffleButton.onclick = function () {
-            _this.grid.shuffle();
-            _this.updatePuzzleStatusElement();
+            _this.shuffle();
         };
         var resetButton = document.getElementById("reset-button");
         resetButton.onclick = function () {
@@ -51,11 +51,43 @@ var Puzzle = /** @class */ (function () {
         var _loop_1 = function (i) {
             directionMenuButtons[i].onclick = function () {
                 _this.movePuzzle(i);
-                _this.updatePuzzleStatusElement();
             };
         };
         for (var i = 0; i < directionMenuButtons.length; ++i) {
             _loop_1(i);
+        }
+    };
+    //EFFECTS: configure user arrow key inputs
+    Puzzle.prototype.initializeArrowKeyInputs = function () {
+        window.addEventListener("keydown", function (event) {
+            if (event.defaultPrevented) {
+                return;
+            }
+            switch (event.key) {
+                case "ArrowDown":
+                    console.log("Arrow down");
+                    puzzle.movePuzzle(2 /* Direction.Down */);
+                    break;
+                case "ArrowUp":
+                    puzzle.movePuzzle(0 /* Direction.Up */);
+                    break;
+                case "ArrowLeft":
+                    puzzle.movePuzzle(3 /* Direction.Left */);
+                    break;
+                case "ArrowRight":
+                    puzzle.movePuzzle(1 /* Direction.Right */);
+                    break;
+                default:
+                    return;
+            }
+            event.preventDefault();
+        }, true);
+    };
+    //EFFECTS: shuffles the grid
+    Puzzle.prototype.shuffle = function () {
+        for (var i = 0; i < 500; ++i) {
+            this.movePuzzle(Math.floor(Math.random() * 4));
+            this.updatePuzzleStatusElement();
         }
     };
     //EFFECTS: moves grid in a given direction
@@ -65,6 +97,7 @@ var Puzzle = /** @class */ (function () {
             return;
         this.grid.swap(this.emptyLocation, movedTileLocation);
         Object.assign(this.emptyLocation, movedTileLocation);
+        this.updatePuzzleStatusElement();
     };
     return Puzzle;
 }());
