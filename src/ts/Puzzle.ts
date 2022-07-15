@@ -39,7 +39,6 @@ class Puzzle {
         let shuffleButton = document.getElementById("shuffle-button")!;
         shuffleButton.onclick = () => {
             this.shuffle();
-            this.updatePuzzleStatusElement();
         }
 
         let resetButton = document.getElementById("reset-button")!;
@@ -60,7 +59,6 @@ class Puzzle {
         for (let i = 0; i < directionMenuButtons.length; ++i) {
             directionMenuButtons[i].onclick = () => {
                 this.movePuzzle(i);
-                this.updatePuzzleStatusElement();
             }
         }
     }
@@ -74,16 +72,16 @@ class Puzzle {
 
             switch (event.key) {
                 case "ArrowDown":
-                    movePuzzle(Direction.Down);
+                    puzzle.movePuzzle(Direction.Down);
                     break;
                 case "ArrowUp":
-                    movePuzzle(Direction.Up);
+                    puzzle.movePuzzle(Direction.Up);
                     break;
                 case "ArrowLeft":
-                    movePuzzle(Direction.Left);
+                    puzzle.movePuzzle(Direction.Left);
                     break;
                 case "ArrowRight":
-                    movePuzzle(Direction.Right);
+                    puzzle.movePuzzle(Direction.Right);
                     break;
                 default:
                     return;
@@ -97,6 +95,7 @@ class Puzzle {
     shuffle(): void {
         for (let i = 0; i < 500; ++i) {
             this.movePuzzle(Math.floor(Math.random() * 4));
+            this.updatePuzzleStatusElement();
         }
     }
 
@@ -106,6 +105,7 @@ class Puzzle {
         if (!movedTileLocation.isValid()) return;
         this.grid.swap(this.emptyLocation, movedTileLocation);
         Object.assign(this.emptyLocation, movedTileLocation);
+        this.updatePuzzleStatusElement();
     }
 }
 

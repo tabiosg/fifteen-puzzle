@@ -13,11 +13,11 @@ var ValidMoves = /** @class */ (function () {
             if (row === 0)
                 ValidMoves.validMoves[i][0 /* Direction.Up */] = false;
             else if (row === 3)
-                ValidMoves.validMoves[i][1 /* Direction.Down */] = false;
+                ValidMoves.validMoves[i][2 /* Direction.Down */] = false;
             if (col === 0)
-                ValidMoves.validMoves[i][2 /* Direction.Left */] = false;
+                ValidMoves.validMoves[i][3 /* Direction.Left */] = false;
             else if (col === 3)
-                ValidMoves.validMoves[i][3 /* Direction.Right */] = false;
+                ValidMoves.validMoves[i][1 /* Direction.Right */] = false;
         }
     }
     //EFFECTS: returns whether it is valid to place a tile at a location in a certain direction
