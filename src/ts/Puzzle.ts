@@ -44,6 +44,7 @@ class Puzzle {
         let resetButton = document.getElementById("reset-button")!;
         resetButton.onclick = () => {
             this.grid.reset();
+            this.emptyLocation = new Location(3, 3);
             this.updatePuzzleStatusElement();
         }
     }
