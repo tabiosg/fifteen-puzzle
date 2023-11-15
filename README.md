@@ -48,7 +48,7 @@ Imagine we start with (15, 13, 14). Here, we want to move the front tile (the ti
 
 ## Inspiration
 
-My first inspiration was looking back at my first YouTube video which was a tutorial on how to solve a fifteen puzzle. I then wanted to make a project about different ways of solving puzzles and later noticed two things:
+My first inspiration was looking back at my [first YouTube video](https://youtu.be/lqETgXkiYu4?feature=shared) which was a tutorial on how to solve a fifteen puzzle. I then wanted to make a project about different ways of solving puzzles and later noticed two things:
 
 1. There are already so many projects that show complex algorithms.
 2. Not all puzzles are solvable (that being the 14-15 puzzle).
